@@ -11,11 +11,11 @@ export function ThemeProvider({
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true); // Bunu ekleyerek hydration hatasını engelliyoruz
+    setMounted(true); // To fix hydration error
   }, []);
 
   if (!mounted) {
-    return <>{children}</>; // İlk başta boş render edip sonra güncelliyoruz
+    return <>{children}</>; 
   }
   return <NextThemesProvider {...props}>{children}</NextThemesProvider>
 }
