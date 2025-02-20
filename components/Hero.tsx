@@ -22,12 +22,12 @@ const Hero = () => {
 
       {/* Aceternity UI Grid and Dot Backgrounds */}
       <div
-        className="h-screen w-full dark:bg-black-100 bg-white dark:bg-grid-white/[0.03] bg-grid-black-100/[0.2]
+        className="h-screen w-full bg-dark-100 bg-grid-white/[0.03]
        absolute top-0 left-0 flex items-center justify-center"
       >
         <div
-          className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100
-         bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
+          className="absolute pointer-events-none inset-0 flex items-center justify-center
+         bg-dark-100 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
           style={{
             WebkitMaskImage:
               "radial-gradient(ellipse at center, transparent 20%, black)",
@@ -49,13 +49,17 @@ const Hero = () => {
           />
 
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-xl">
-            Hi, I&apos;m Begüm, a Frontend Developer with a strong focus on web
-            development.
+            Hi, I&apos;m Begüm, a Frontend Developer crafting modern and
+            user-friendly web experiences.
           </p>
 
           {/* Aceternity UI Button */}
           <a href="#about">
-            <MagicButton title="Show My Work" icon={<FaLocationArrow/>} position="right"/>
+            <MagicButton
+              title="Show My Work"
+              icon={<FaLocationArrow />}
+              position="right"
+            />
           </a>
         </div>
       </div>
