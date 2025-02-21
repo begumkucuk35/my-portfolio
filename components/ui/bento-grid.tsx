@@ -1,5 +1,11 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./background-gradient-animation";
+import Confetti from "react-confetti";
+import { useState } from "react";
+import MagicButton from "./MagicButton";
+import { IoCopyOutline } from "react-icons/io5";
 
 export const BentoGrid = ({
   className,
@@ -41,6 +47,19 @@ export const BentoGridItem = ({
 }) => {
   const leftLists = ["ReactJS", "Express", "Typescript"];
   const rightLists = ["VueJS", "NuxtJS", "GraphQL"];
+
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    const text = "hsu@jsmastery.pro";
+
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+
+      setTimeout(() => setCopied(false), 5000);
+    } catch (error) {}
+  };
 
   return (
     <div
@@ -123,6 +142,37 @@ export const BentoGridItem = ({
                   </span>
                 ))}
               </div>
+            </div>
+          )}
+
+          {id === 6 && (
+            <div className="mt-5 relative">
+              <div className={`absolute`}>
+                {copied && (
+                  <Confetti
+                    width={400}
+                    height={200}
+                    numberOfPieces={30}
+                    gravity={0.4}
+                    colors={[
+                      "#ffffff",
+                      "#dd4aff",
+                      "#555555",
+                      "#001152",
+                      "#6c00a2",
+                      "#1271ff",
+                      "#26262a"
+                    ]}
+                  />
+                )}
+              </div>
+              <MagicButton
+                title={copied ? "Email is Copied!" : "Copy my email address"}
+                icon={<IoCopyOutline />}
+                position="left"
+                handleClick={handleCopy}
+                otherClasses="!bg-[#161A31]"
+              />
             </div>
           )}
         </div>
