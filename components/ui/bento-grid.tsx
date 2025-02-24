@@ -17,7 +17,7 @@ export const BentoGrid = ({
   return (
     <div
       className={cn(
-        "grid md:auto-rows-[18rem] grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto ",
+        "grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 gap-4 lg:gap-8 mx-auto",
         className
       )}
     >
@@ -45,13 +45,13 @@ export const BentoGridItem = ({
   img?: string;
   spareImg?: string;
 }) => {
-  const leftLists = ["ReactJS", "Express", "Typescript"];
-  const rightLists = ["VueJS", "NuxtJS", "GraphQL"];
+  const leftLists = ["ReactJS", "Typescript", "TailwindCSS"];
+  const rightLists = ["NextJs", "Javascript", "Bootstrap"];
 
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
-    const text = "hsu@jsmastery.pro";
+    const text = "35begumkucuk@gmail.com";
 
     try {
       await navigator.clipboard.writeText(text);
@@ -86,14 +86,16 @@ export const BentoGridItem = ({
         </div>
         <div
           className={`absolute right-0 -bottom-5 ${
-            id === 5 && "w-full opacity-80"
-          } `}
+            id === 5 && "w-full opacity-80" 
+          }  `}
         >
           {spareImg && (
             <img
               src={spareImg}
               alt={spareImg}
-              className="object-cover object-center w-full h-full"
+              className={`object-cover object-center w-full h-full ${
+                id === 2 && "opacity-30" 
+              } `}
             />
           )}
         </div>
@@ -109,13 +111,12 @@ export const BentoGridItem = ({
             "group-hover/bento:translate-x-2 transition duration-200 relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:p-10"
           )}
         >
-          <div className="font-sans font-extralight md:max-w-32 md:text-xs lg:text-base text-sm text-[#C1C2D3] z-10">
+          <div className={`${id === 4 && "md:max-w-64"} "font-sans font-extralight md:max-w-32 md:text-xs lg:text-base text-sm text-[#C1C2D3] z-10"`}>
             {description}
           </div>
           <div className="font-sans font-bold text-lg lg:text-3xl text-white max-w-96 z-10">
             {title}
           </div>
-
           {id === 3 && (
             <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2">
               <div className="flex flex-col gap-3 md:gap-3 lg:gap-8">
@@ -161,7 +162,7 @@ export const BentoGridItem = ({
                       "#001152",
                       "#6c00a2",
                       "#1271ff",
-                      "#26262a"
+                      "#26262a",
                     ]}
                   />
                 )}
